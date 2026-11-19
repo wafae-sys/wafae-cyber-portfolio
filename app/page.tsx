@@ -446,12 +446,12 @@ export default function Home() {
               real, legible skills grid with the same taglines. */}
           <section
             data-kb-section="stack"
-            className="relative md:min-h-[200vh] p-6 sm:p-10 md:p-14"
+            className="relative min-h-screen p-6 sm:p-10 md:p-14"
           >
-            <div className="relative md:h-[150vh]">
+            <div className="relative">
               <div className="md:sticky md:top-28 text-center">
                 <Reveal>
-                  <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] text-ice-50 leading-tight mb-6">
                     {t("stack.title")}
                   </h2>
                 </Reveal>
@@ -465,12 +465,11 @@ export default function Home() {
 
               {/* Mobile skills grid (recovers the hover interaction as static
                   content the keyboard can't surface on touch). */}
-              {isMobile && (
-                <div className="md:hidden mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 pointer-events-auto">
+              <div className="relative z-10 w-full max-w-5xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pointer-events-auto">
                   {SKILLS_FLAT.map((s) => (
                     <div
                       key={s.slug}
-                      className="flex items-start gap-3 rounded-xl bg-ink-1/70 backdrop-blur-sm border border-ink-3 p-4"
+                      className="relative flex items-start gap-3 rounded-2xl bg-[#21172F]/95 backdrop-blur-xl border border-[#BAA7FF]/25 p-5 shadow-lg shadow-[#120D20]/30 transition-all duration-300 hover:-translate-y-1 hover:border-[#E9A6D0]/80 hover:shadow-[0_0_25px_rgba(233,166,208,0.22)]"
                     >
                       <svg
                         viewBox="0 0 24 24"
@@ -493,7 +492,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              )}
             </div>
           </section>
 

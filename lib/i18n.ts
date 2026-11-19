@@ -1,4 +1,4 @@
-// Minimal i18n layer: a single dictionary keyed by dot-path, with each leaf
+﻿// Minimal i18n layer: a single dictionary keyed by dot-path, with each leaf
 // carrying both the ES and EN copy. Consumers read via `useLanguage().t()`
 // which resolves the path for the active language. Keeping it flat and
 // co-located (rather than adding a dependency like next-intl) keeps the
@@ -69,9 +69,9 @@ keysHint: {
     en: "Tech Stack"
   },
   hint: {
-    fr: "(astuce : survolez une touche)",
-    en: "(hint: hover over a key)"
-  },
+  fr: "",
+  en: "",
+},
   hintMobile: {
     fr: "Les technologies que j'utilise pour mes projets.",
     en: "The tools I build with."
@@ -95,13 +95,13 @@ projects: {
 },
 contact: {
   kicker: { fr: "contact", en: "contact" },
-  title: { fr: "Discutons ensemble !", en: "Let's talk?" },
-  body: {
-    fr: "Vous avez un projet, une opportunité ou une question ? N'hésitez pas à me contacter.",
-    en: "If what you've seen interests you, the keyboard is ready for the first message.",
-  },
+  title: { fr: "Prenons contact", en: "Get in touch" },
+ body: {
+  fr: "Disponible pour échanger sur des opportunités de stage PFE et des projets en cybersécurité.",
+  en: "Open to discussing final-year internship opportunities and cybersecurity projects.",
+},
   copyEmail: { fr: "Copier l'adresse e-mail", en: "Copy email" },
-  openMail: { fr: "Envoyer un e-mail", en: "Open mailto" },
+  openMail: { fr: "Envoyer un e-mail", en: "Send an email" },
   github: { fr: "GitHub", en: "GitHub" },
   linkedin: { fr: "LinkedIn", en: "LinkedIn" },
   emailToast: { fr: "Adresse e-mail copiée", en: "Email copied" },
