@@ -16,163 +16,187 @@ import { useIsMobile } from "@/lib/useIsMobile";
 import { SKILLS_FLAT } from "@/lib/skills";
 import type { Lang } from "@/lib/i18n";
 
-const EMAIL = "josemariaalberobelamendia@gmail.com";
+const EMAIL = "wafaeelfatmaoui@gmail.com";
 
 // Localised content lives in `{ es, en }` objects inside these arrays so the
 // page can be a straightforward array.map() at render time. Tech names stay
 // as plain strings (they're brand names, not localised).
-type Localised = { es: string; en: string };
+   type Localised = { fr: string; en: string };
 
 type Project = ProjectDetail & {
   align: "left" | "right";
-  section: "project1" | "project2" | "project3" | "project4";
+  section: "project1" | "project2" | "project3" | "project4" | "project5";
 };
 
 const projects: Project[] = [
   {
     num: "01",
     name: {
-      es: "Contestador IA de Reseñas Google",
-      en: "AI Responder for Google Reviews",
-    },
+  fr: "DevSecOps - Sécurisation d'une chaîne de conteneurisation",
+  en: "DevSecOps - Secure Containerization Pipeline",
+},
     stack: [
-      "Next.js",
-      "FastAPI",
-      "Python",
-      "PostgreSQL",
-      "Supabase",
-      "Claude API",
-      "Stripe",
-      "Celery",
-    ],
+  "Docker",
+  "Trivy",
+  "GitHub Actions",
+  "Prometheus",
+  "Grafana",
+],
     desc: {
-      es: "SaaS que genera respuestas personalizadas a reseñas de Google Business Profile con IA, manteniendo el tono de la marca.",
-      en: "SaaS that generates personalised replies to Google Business Profile reviews with AI while keeping the brand tone.",
-    },
+  fr: "Securing a containerized application using Docker, Trivy, and GitHub Actions, with continuous monitoring through Prometheus and Grafana.",
+  en: "Securing a containerized application using Docker, Trivy, and GitHub Actions, with continuous monitoring through Prometheus and Grafana.",
+},
     details: {
-      es: "Plataforma orientada a negocios locales en España para gestionar sus reseñas de Google Business Profile. El sistema hace polling cada 15 minutos, llama a Claude para generar respuestas alineadas con el tono de marca y las publica automáticamente (o las manda a revisión). Incluye Stripe con suscripciones y Customer Portal, autenticación con Google OAuth + PKCE, alertas por email/SMS para reseñas negativas y un dashboard con métricas.",
-      en: "A platform for local businesses in Spain to manage their Google Business Profile reviews. The system polls every 15 minutes, uses Claude to draft replies in the brand's tone and publishes them automatically (or sends them to review). Stripe handles subscriptions and Customer Portal, auth is Google OAuth with PKCE, and negative reviews fire email/SMS alerts. Dashboard with metrics included.",
-    },
-    url: "https://revio.txemaalbero.com/",
+  fr: "Academic DevSecOps project focused on securing a containerized room booking application. Docker was used for containerization, Trivy for vulnerability scanning, and GitHub Actions for CI/CD security automation. Prometheus and Grafana were integrated to monitor application performance and infrastructure metrics.",
+  en: "Academic DevSecOps project focused on securing a containerized room booking application. Docker was used for containerization, Trivy for vulnerability scanning, and GitHub Actions for CI/CD security automation. Prometheus and Grafana were integrated to monitor application performance and infrastructure metrics.",
+},
     media: [
-      "/projects/revio/landing.png",
-      "/projects/revio/dashboard.png",
-      "/projects/revio/alertas.png",
-      "/projects/revio/analiticas.png",
-      "/projects/revio/negocios.png",
-      "/projects/revio/analiticas-ia.png",
-    ],
-    highlights: ["nextdotjs", "tailwindcss", "python", "postgresql"],
+  "/projects/devsecops/01-architecture.png",
+  "/projects/devsecops/02-github-actions.png",
+  "/projects/devsecops/03-trivy.png",
+  "/projects/devsecops/04-grafana.png",
+  "/projects/devsecops/05-cpu-ram.png",
+],
+highlights: ["docker", "git", "trivy", "prometheus", "grafana"],
     align: "left",
     section: "project1",
   },
   {
     num: "02",
     name: {
-      es: "Control de Temperaturas APPCC",
-      en: "HACCP Temperature Control",
-    },
+  fr: "Supervision réseau proactive avec Zabbix",
+  en: "Proactive Network Monitoring with Zabbix",
+},
     stack: [
-      "Next.js 16",
-      "FastAPI",
-      "Python",
-      "PostgreSQL",
-      "Supabase",
-      "Claude API",
-      "Stripe",
-      "Celery",
-    ],
+  "Zabbix",
+  "Ubuntu",
+  "Windows",
+  "Network Monitoring",
+  "CPU & RAM Monitoring",
+],
     desc: {
-      es: "App para restaurantes que digitaliza el registro de temperaturas APPCC y genera planes e informes automáticos para inspecciones sanitarias.",
-      en: "App for restaurants that digitises HACCP temperature logs and auto-generates plans and reports for food safety inspections.",
-    },
+  fr: "Supervision proactive des infrastructures réseau avec Zabbix, surveillance des ressources CPU, RAM et des services sous Ubuntu et Windows.",
+  en: "Proactive network infrastructure monitoring with Zabbix, tracking CPU, RAM and system services across Ubuntu and Windows environments.",
+},
     details: {
-      es: "Digitaliza el control APPCC completo de un restaurante: registros de temperatura, trazabilidad, alérgenos y generación asistida por IA de los planes HACCP. Integración con Open Food Facts para importar alérgenos, MFA en la autenticación, multi-idioma con next-intl y pagos por suscripción con Stripe. Backend 100% async con FastAPI + SQLAlchemy y tareas en Celery.",
-      en: "Full HACCP digitisation for a restaurant: temperature logs, traceability, allergens, and AI-assisted generation of HACCP plans. Integrates with Open Food Facts for allergens, MFA-protected auth, i18n with next-intl, subscription billing with Stripe. Fully async backend with FastAPI + SQLAlchemy and Celery workers.",
-    },
-    url: "https://aptia.txemaalbero.com/",
-    media: [
-      "/projects/aptia/landing.png",
-      "/projects/aptia/panel.png",
-      "/projects/aptia/registros.png",
-      "/projects/aptia/carta-alergenos.png",
-      "/projects/aptia/inspeccion.png",
-      "/projects/aptia/cuestionario.png",
-    ],
-    highlights: ["nextdotjs", "tailwindcss", "python", "postgresql", "typescript"],
-    badge: { es: "En desarrollo", en: "In progress" },
+  fr: "Projet académique de supervision réseau proactive utilisant Zabbix pour surveiller des machines Ubuntu et Windows. Mise en place de la surveillance des ressources système (CPU, RAM) et des services, avec configuration d'alertes multi-seuils pour détecter rapidement les anomalies et faciliter l'administration des infrastructures.",
+  en: "Academic project focused on proactive network monitoring using Zabbix across Ubuntu and Windows systems. Implemented CPU, RAM and service monitoring, along with multi-threshold alerts to identify anomalies early and support infrastructure administration.",
+},
+    url: "",
+   media: [
+  "/projects/zabbix/zabbix1.png",
+  "/projects/zabbix/zabix2.png",
+  "/projects/zabbix/zabix3.png",
+  "/projects/zabbix/zabix4.png",
+],
+    highlights: ["linux"],
+badge: { fr: "Terminé", en: "Completed" },
     align: "right",
     section: "project2",
   },
   {
     num: "03",
     name: {
-      es: "Gestor de Finanzas Personales",
-      en: "Personal Finance Tracker",
-    },
+  fr: "Infraestructura VPN Segura con AAA y ACL",
+  en: "Secure VPN Infrastructure with AAA & ACL",
+},
     stack: [
-      "Django",
-      "Python",
-      "SQLite",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Chart.js",
-      "pandas",
-    ],
+  "GNS3",
+  "Cisco IOS",
+  "Ubuntu Server",
+  "FreeRADIUS",
+  "AAA",
+  "RADIUS",
+  "ACL",
+],
     desc: {
-      es: "Dashboard para seguimiento de ingresos, gastos y objetivos de ahorro con visualizaciones gráficas, importación desde Excel e informes mensuales.",
-      en: "Dashboard to track income, expenses and savings goals with visual charts, Excel import and monthly reports.",
-    },
+  fr: "Diseño de una infraestructura VPN segura con routers Cisco, autenticación AAA centralizada mediante FreeRADIUS y filtrado del tráfico mediante ACL en un entorno GNS3.",
+  en: "Design and implementation of a secure VPN network infrastructure using Cisco routers, centralized AAA authentication with FreeRADIUS, and ACL-based traffic filtering in a GNS3 environment.",
+},
     details: {
-      es: "Aplicación Django clásica (MVT) para finanzas personales: categorización de gastos, objetivos de ahorro, importación masiva desde Excel (xlsx/xls) y gráficos con Chart.js. Temas claro/oscuro hechos con CSS puro y sin dependencias frontend. Un proyecto que prioriza simplicidad y robustez: sin frameworks en el cliente, autenticación nativa de Django, base de datos SQLite.",
-      en: "Classic Django (MVT) app for personal finance: expense categorisation, savings goals, bulk import from Excel (xlsx/xls) and Chart.js-powered graphs. Light/dark themes in pure CSS with zero frontend dependencies. A project that favours simplicity and robustness: no client framework, Django's built-in auth, SQLite storage.",
-    },
-    github: "https://github.com/Txemalon/Gestor-de-gastos-personales",
+  fr: "Proyecto académico de diseño e implementación de una infraestructura VPN segura en GNS3 con routers Cisco IOS y un servidor Ubuntu que ejecuta FreeRADIUS. Configuración de la autenticación centralizada AAA mediante RADIUS y aplicación de listas de control de acceso (ACL) para filtrar el tráfico de red. Realización de pruebas de conectividad, autenticación y filtrado para validar la configuración.",
+  en: "Academic project focused on designing and implementing a secure VPN infrastructure in GNS3 using Cisco IOS routers and an Ubuntu server running FreeRADIUS. Configured centralized AAA authentication through RADIUS and applied Access Control Lists (ACLs) to restrict network traffic. Performed connectivity, authentication, and traffic-filtering tests to validate the configuration.",
+},
+github: "",
     media: [
-      "/projects/gestor-gastos/dashboard.png",
-      "/projects/gestor-gastos/wallets.png",
-      "/projects/gestor-gastos/transacciones.png",
-      "/projects/gestor-gastos/categorias.png",
-      "/projects/gestor-gastos/reportes.png",
-      "/projects/gestor-gastos/inversiones.png",
-    ],
-    highlights: ["python", "javascript", "html5", "css"],
-    align: "left",
-    section: "project3",
+  "/projects/vpn/vpn1.png",
+  "/projects/vpn/VPN2.png",
+  "/projects/vpn/VPN3.png",
+  "/projects/vpn/VPN4.png",
+],
+   highlights: ["linux"],
+badge: { fr: "Terminé", en: "Completed" },
+align: "left",
+section: "project3",
   },
   {
     num: "04",
     name: {
-      es: "Tienda online de dianas",
-      en: "Dartboards e-commerce",
-    },
+  fr: "Auditoría de Vulnerabilidades y Remediación — Metasploitable 2",
+  en: "Vulnerability Assessment & Remediation — Metasploitable 2",
+},
     stack: [
-      "Next.js 15",
-      "React",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth",
-      "Stripe",
-      "Framer Motion",
-    ],
+  "Kali Linux",
+  "Metasploitable 2",
+  "Nmap",
+  "NSE Scripts",
+  "Metasploit Framework",
+  "VirtualBox",
+  "Vulnerability Assessment",
+],
     desc: {
-      es: "E-commerce moderno para venta de dianas con pagos integrados, autenticación social, panel de administración y animaciones fluidas.",
-      en: "Modern e-commerce for dartboards with integrated payments, social auth, an admin panel and smooth animations.",
-    },
+  fr: "Auditoría de seguridad de Metasploitable 2 en un laboratorio aislado utilizando Kali Linux, Nmap y Metasploit para identificar vulnerabilidades, realizar pruebas de explotación controladas y aplicar medidas de remediación.",
+  en: "Security assessment of Metasploitable 2 in an isolated lab using Kali Linux, Nmap, and Metasploit to identify vulnerabilities, perform controlled exploitation, and implement remediation measures.",
+},
     details: {
-      es: "Tienda online completa con catálogo, carrito y checkout con Stripe. NextAuth con Google OAuth y credenciales, rate limiting con Upstash Redis, validación con Zod y un panel de administración separado (AdminJS sobre Express, puerto 3001). Transiciones y microinteracciones con Framer Motion para darle un acabado más premium que una tienda al uso.",
-      en: "A full e-commerce with catalogue, cart and Stripe checkout. NextAuth with Google OAuth and credentials, Upstash Redis for rate limiting, Zod validation, and a separate admin panel (AdminJS on Express, port 3001). Framer Motion powers transitions and micro-interactions for a more premium feel than a typical shop.",
-    },
+  fr: "Proyecto académico de auditoría de seguridad realizado en un laboratorio virtual aislado con Kali Linux y Metasploitable 2. Identificación de puertos y servicios expuestos mediante Nmap, análisis de vulnerabilidades con scripts NSE y explotación controlada de la vulnerabilidad vsFTPd 2.3.4 (CVE-2011-2523) utilizando Metasploit Framework. Aplicación y verificación de una medida de remediación para esta vulnerabilidad crítica, con documentación de los riesgos restantes y recomendaciones de seguridad.",
+  en: "Academic security audit conducted in an isolated virtual lab using Kali Linux and Metasploitable 2. Identified exposed ports and services with Nmap, analyzed vulnerabilities using NSE scripts, and performed controlled exploitation of the vsFTPd 2.3.4 vulnerability (CVE-2011-2523) with Metasploit Framework. Applied and verified remediation for this critical vulnerability while documenting remaining security risks and recommendations.",
+},
     media: [
-      "/projects/dianas/packs.png",
-      "/projects/dianas/catalogo.png",
-    ],
-    highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "postgresql"],
-    badge: { es: "En construcción", en: "Under construction" },
+  "/projects/metasploitable/meta1.png",
+  "/projects/metasploitable/META2.png",
+  "/projects/metasploitable/META3.png",
+  "/projects/metasploitable/META4.png",
+],
+    highlights: ["kalilinux", "nmap", "burpsuite"],
+    badge: { fr: "Terminé", en: "Completed" },
     align: "right",
     section: "project4",
+  },
+    {
+    num: "05",
+    name: {
+      fr: "Guardian v4 — Sistema de Detección de Intrusiones",
+      en: "Guardian v4 — Network Intrusion Detection System",
+    },
+    stack: [
+  "Guardian v4",
+  "Suricata",
+  "Python",
+  "Kali Linux",
+  "Flask",
+  "Scapy",
+  "Honeypots",
+  "iptables",
+],
+    desc: {
+  fr: "Déploiement et test de Guardian v4, un système de détection d'intrusions réseau intégrant Suricata, des honeypots, des tableaux de bord de surveillance et le blocage manuel des adresses IP suspectes.",
+  en: "Deployment and testing of Guardian v4, a network intrusion detection system integrating Suricata, honeypots, monitoring dashboards, and manual blocking of suspicious IP addresses.",
+},
+    details: {
+  fr: "Projet réalisé lors de mon stage en cybersécurité chez Al Amana Microfinance. Déploiement et configuration de Guardian v4 dans un environnement Kali Linux virtualisé. Intégration de Suricata pour la détection par signatures, d'un moteur Python pour l'analyse comportementale et de honeypots pour identifier les tentatives d'intrusion. Mise en place de tableaux de bord de surveillance et d'analyse forensic, avec blocage manuel des adresses IP suspectes via iptables. Validation du système à travers des tests de scans de ports, de connexions aux honeypots et d'intégration des alertes Suricata.",
+  en: "Cybersecurity internship project carried out at Al Amana Microfinance. Deployed and configured Guardian v4 in a virtualized Kali Linux environment. Integrated Suricata for signature-based detection, a Python engine for behavioral analysis, and honeypots to identify intrusion attempts. Implemented monitoring and forensic dashboards with manual blocking of suspicious IP addresses using iptables. Validated the system through port scanning, honeypot connection tests, and Suricata alert integration.",
+},
+    media: [
+  "/projects/guardian/gard1.png",
+  "/projects/guardian/GARD2.png",
+  "/projects/guardian/GARD3.png",
+  "/projects/guardian/GARD4.png",
+],
+    highlights: ["suricata", "python", "kalilinux"],
+    badge: { fr: "Terminé", en: "Completed" },
+    align: "left",
+    section: "project5",
   },
 ];
 
@@ -186,37 +210,42 @@ const experiences: Array<{
   stack: string[];
 }> = [
   {
-    role: { es: "Tech Lead", en: "Tech Lead" },
-    company: "Activalink",
-    period: { es: "2023 — Presente", en: "2023 — Present" },
-    location: { es: "Alcoy, España", en: "Alcoy, Spain" },
+   role: {
+  fr: "Stagiaire en cybersécurité",
+  en: "Cybersecurity Intern",
+},
+company: "Al Amana Microfinance",
+    period: {
+  fr: "Juillet – Août 2026",
+  en: "July – August 2026",
+},
+location: {
+  fr: "Rabat, Maroc",
+  en: "Rabat, Morocco",
+},
     summary: {
-      es: "Activalink implementa y adapta ERPs para pymes y grandes empresas. Desarrollo módulos y personalizaciones custom sobre Odoo, integraciones a medida y proyectos de implantación llave en mano. Lidero un equipo de 3 desarrolladores: nuestro trabajo se mide en tiempo ahorrado y errores evitados.",
-      en: "Activalink implements and customises ERPs for SMBs and large companies. I build custom modules and personalisations on top of Odoo, bespoke integrations, and end-to-end implementation projects. I lead a team of 3 developers: our work is measured in time saved and errors avoided.",
-    },
+  fr: "Stage en cybersécurité consacré à la surveillance des infrastructures réseau, à la détection des activités suspectes et à l'analyse des événements de sécurité à l'aide de Suricata et de honeypots.",
+  en: "Cybersecurity internship focused on network infrastructure monitoring, suspicious activity detection, and security event analysis using Suricata and honeypots.",
+},
     bullets: [
-      {
-        es: "OCR de facturas en Odoo — de 4 h/día a 30 min (−87 %).",
-        en: "Invoice OCR in Odoo — from 4 h/day down to 30 min (−87 %).",
-      },
-      {
-        es: "Logística con mapa interactivo — −60 % errores de seguimiento.",
-        en: "Interactive logistics map — −60 % tracking errors.",
-      },
-      {
-        es: "Conciliación automática — cierre contable de 3 días a medio día.",
-        en: "Automated reconciliation — monthly close from 3 days to half a day.",
-      },
-      {
-        es: "Dashboards financieros — detección temprana de facturas sin emitir.",
-        en: "Financial dashboards — early detection of uninvoiced orders.",
-      },
-    ],
-    stack: ["Odoo", "Python", "PostgreSQL", "Next.js", "TypeScript", "Docker"],
+  {
+    fr: "Mise en place et configuration de Suricata pour la détection des activités réseau suspectes.",
+    en: "Deployed and configured Suricata to detect suspicious network activity.",
+  },
+  {
+    fr: "Utilisation de honeypots pour observer et analyser les tentatives d'intrusion.",
+    en: "Used honeypots to observe and analyze intrusion attempts.",
+  },
+  {
+    fr: "Analyse des alertes de sécurité et des événements réseau pour identifier les menaces potentielles.",
+    en: "Analyzed security alerts and network events to identify potential threats.",
+  },
+],
+    stack: ["Suricata", "Honeypots", "Network Security", "Intrusion Detection", "Security Monitoring"],
   },
 ];
 
-function pick<T>(loc: { es: T; en: T }, lang: Lang): T {
+function pick<T>(loc: { fr: T; en: T }, lang: Lang): T {
   return loc[lang];
 }
 
@@ -262,7 +291,7 @@ export default function Home() {
               data-cursor="hover"
               className="text-sm font-semibold tracking-tight text-ice-100 whitespace-nowrap"
             >
-              Txema Albero
+              Wafae El Fatmaoui
             </span>
             {/* Wrapper (not the pill itself) carries the hide: .status-pill
                 hard-sets display:inline-flex, which beats Tailwind's .hidden
@@ -275,7 +304,7 @@ export default function Home() {
             <SeasonPicker />
             <span className="hidden md:inline-flex">
             <a
-              href="https://github.com/Txemalon/3d-portfolio"
+              href="https://github.com/wafae-sys"
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="hover"
@@ -314,9 +343,9 @@ export default function Home() {
                 {t("hero.greeting")}
               </p>
               <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] whitespace-nowrap">
-                <HeroWord text="Txema" delay={120} />
-                <br />
-                <HeroWord text="Albero" delay={260} className="text-ice-400" />
+                <HeroWord text="Wafae" delay={120} />
+<br />
+<HeroWord text="El Fatmaoui" delay={260} className="text-ice-400" />
               </h1>
               <p
                 className="mt-8 text-base sm:text-lg md:text-xl text-ice-200 max-w-xl leading-relaxed fade-in-up"
@@ -333,7 +362,7 @@ export default function Home() {
                 style={{ ["--d" as string]: "700ms" }}
               >
                 <a
-                  href={lang === "en" ? "/cv_en.pdf" : "/cv.pdf"}
+                  href="/cv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
@@ -366,7 +395,7 @@ export default function Home() {
                     so desktop keeps everything on a single line. */}
                 <div className="basis-full h-0 md:hidden" aria-hidden />
                 <a
-                  href="https://es.linkedin.com/in/jose-mar%C3%ADa-albero-belamendia-b9319a246"
+                  href="https://www.linkedin.com/in/wafae-elfatmaoui-23228b446/"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
@@ -379,7 +408,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://github.com/Txemalon"
+                  href="https://github.com/wafae-sys"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
@@ -684,14 +713,16 @@ export default function Home() {
                     {t("contact.copyEmail")}
                   </CopyEmail>
                   <a
-                    href={`mailto:${EMAIL}`}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     data-cursor="hover"
                     className="frost-btn"
                   >
                     {t("contact.openMail")}
                   </a>
                   <a
-                    href="https://github.com/Txemalon"
+                    href="https://github.com/wafae-sys"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="hover"
@@ -700,7 +731,7 @@ export default function Home() {
                     {t("contact.github")}
                   </a>
                   <a
-                    href="https://es.linkedin.com/in/jose-mar%C3%ADa-albero-belamendia-b9319a246"
+                    href="https://www.linkedin.com/in/wafae-elfatmaoui-23228b446/"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="hover"

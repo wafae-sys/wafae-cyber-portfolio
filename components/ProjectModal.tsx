@@ -6,7 +6,10 @@ import { useLanguage } from "@/components/LanguageProvider";
 import Carousel from "@/components/Carousel";
 import type { Lang } from "@/lib/i18n";
 
-type Localised = { es: string; en: string };
+export type Localised = {
+  fr: string;
+  en: string;
+};
 
 export type ProjectDetail = {
   num: string;
@@ -32,7 +35,7 @@ type Props = {
   onClose: () => void;
 };
 
-function pick<T>(loc: { es: T; en: T }, lang: Lang): T {
+function pick<T>(loc: { fr: T; en: T }, lang: Lang): T {
   return loc[lang];
 }
 
@@ -144,7 +147,150 @@ export default function ProjectModal({ project, onClose }: Props) {
               <p className="text-ice-200 leading-relaxed mb-6 whitespace-pre-line">
                 {pick(project.details, lang)}
               </p>
-
+              {project.num === "01" && (
+  <div className="mb-6">
+    <a
+      href="/projects/devsecops/rapport_devsecops_Wafae_El_Fatmaoui.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="hover"
+      className="frost-btn frost-btn--primary"
+   >
+  <svg
+    viewBox="0 0 24 24"
+    width="18"
+    height="18"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <path d="M14 2v6h6" />
+    <path d="M8 13h8M8 17h8" />
+  </svg>
+  View Report
+</a>
+  </div>
+)}
+{/* Rapport Zabbix */}
+{project.num === "02" && (
+  <div className="mb-6">
+    <a
+      href="/projects/zabbix/rapport_zabbix_Wafae_El_Fatmaoui.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="hover"
+      className="frost-btn frost-btn--primary"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8M8 17h8" />
+      </svg>
+      View Report
+    </a>
+  </div>
+)}
+{/* Rapport VPN */}
+{project.num === "03" && (
+  <div className="mb-6">
+    <a
+      href="/projects/vpn/rapport_vpn_Wafae_El_Fatmaoui.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="hover"
+      className="frost-btn frost-btn--primary"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8M8 17h8" />
+      </svg>
+      View Report
+    </a>
+  </div>
+)}
+{/* Rapport Metasploitable 2 */}
+{project.num === "04" && (
+  <div className="mb-6">
+    <a
+      href="/projects/metasploitable/rapport_metasploitable.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="hover"
+      className="frost-btn frost-btn--primary"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8M8 17h8" />
+      </svg>
+      View Report
+    </a>
+  </div>
+)}
+{/* Rapport de stage Guardian v4 */}
+{project.num === "05" && (
+  <div className="mb-6">
+    <a
+      href="/projects/guardian/rapport_guardian_Wafae_El_Fatmaoui.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="hover"
+      className="frost-btn frost-btn--primary"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8M8 17h8" />
+      </svg>
+      View Report
+    </a>
+  </div>
+)}
               {(project.url || project.github) && (
                 <div className="flex flex-wrap gap-3 mb-6">
                   {project.url && (

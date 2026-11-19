@@ -1,5 +1,5 @@
 "use client";
-
+import CyberGlobe from "@/components/CyberGlobe";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Environment,
@@ -97,6 +97,16 @@ const SECTION_STATES: Record<string, KeyboardState> = {
     posZ: 0,
     scale: 0.85,
   },
+  // Project 5 — text left-aligned, 3D object on the right.
+project5: {
+  yaw: 0,
+  pitch: 0.7,
+  roll: 0.2,
+  posX: 1.5,
+  posY: 0.2,
+  posZ: 0,
+  scale: 0.85,
+},
   experience: {
     yaw: Math.PI * 0.3,
     pitch: Math.PI * 0.08,
@@ -663,13 +673,13 @@ function Keyboard({ mobile }: { mobile: boolean }) {
       mobile ||
       activeSectionRef.current === "hero" ||
       activeSectionRef.current === "contact";
-    const yawSwing = isShowcase ? 0.5 : 0.025;
+    const yawSwing = isShowcase ? 1.2 : 0.025;
     const pitchSwing = isShowcase ? 0.07 : 0.0;
     const rollSwing = isShowcase ? 0.05 : 0.0;
     const period = isShowcase ? 9 : 20; // seconds per full cycle
     const w = (Math.PI * 2) / period;
     ref.current.rotation.y =
-      c.yaw + Math.sin(t * w) * yawSwing + spinRef.current;
+  c.yaw + t * 0.35 + spinRef.current;
     ref.current.rotation.x = c.pitch + Math.sin(t * w * 0.6) * pitchSwing;
     ref.current.rotation.z = c.roll + Math.sin(t * w * 0.8) * rollSwing;
     ref.current.position.x = c.posX;
@@ -745,18 +755,8 @@ function Keyboard({ mobile }: { mobile: boolean }) {
   return (
     <>
       <group ref={ref}>
-        <mesh geometry={baseGeom}>
-          {/* Solid matte plastic — color prop controls the tone directly.
-              No transmission/clearcoat so the white environment doesn't
-              wash it out to grey. */}
-          <meshStandardMaterial
-            color={palette.keyboardBase}
-            roughness={0.6}
-            metalness={0}
-          />
-        </mesh>
-        {keycaps}
-      </group>
+  <CyberGlobe />
+</group>
       {/* Callout lives OUTSIDE the animated keyboard group so the keyboard's
           yaw/pitch/scale don't warp the text. Placed in world space, to the
           left of the tilted keyboard, with its own matching isometric yaw +

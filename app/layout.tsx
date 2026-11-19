@@ -1,9 +1,10 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import FrozenBackground from "@/components/FrozenBackground";
 import ScrollProgress from "@/components/ScrollProgress";
+import Script from "next/script";
 import MagneticTargets from "@/components/MagneticTargets";
 import SeasonProvider, {
   SEASON_BOOT_SCRIPT,
@@ -23,12 +24,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Txema Albero — Software Engineer & Tech Lead",
+  title: "Txema Albero â€” Software Engineer & Tech Lead",
   description:
-    "Portfolio inmersivo de Txema Albero — Software Engineer / Tech Lead. Experiencias web 3D con Next.js y React Three Fiber.",
+    "Portfolio inmersivo de Txema Albero â€” Software Engineer / Tech Lead. Experiencias web 3D con Next.js y React Three Fiber.",
   authors: [{ name: "Txema Albero" }],
   openGraph: {
-    title: "Txema Albero — Software Engineer & Tech Lead",
+    title: "Txema Albero â€” Software Engineer & Tech Lead",
     description:
       "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
     type: "website",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Txema Albero — Software Engineer & Tech Lead",
+    title: "Txema Albero â€” Software Engineer & Tech Lead",
     description:
       "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
   },
@@ -60,9 +61,8 @@ export default function RootLayout({
     >
       <head>
         {/* Run synchronously before hydration to apply the user's stored
-            season + language — avoids a flash of the default values. */}
-        <script dangerouslySetInnerHTML={{ __html: SEASON_BOOT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: LANG_BOOT_SCRIPT }} />
+            season + language â€” avoids a flash of the default values. */}
+
       </head>
       <body
         className="min-h-full flex flex-col"

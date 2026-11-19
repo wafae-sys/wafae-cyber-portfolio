@@ -1,182 +1,237 @@
-// Minimal i18n layer: a single dictionary keyed by dot-path, with each leaf
+﻿// Minimal i18n layer: a single dictionary keyed by dot-path, with each leaf
 // carrying both the ES and EN copy. Consumers read via `useLanguage().t()`
 // which resolves the path for the active language. Keeping it flat and
 // co-located (rather than adding a dependency like next-intl) keeps the
 // project tiny and makes the strings easy to audit.
-export type Lang = "es" | "en";
+export type Lang = "fr" | "en";
 
-export const LANGUAGES: Lang[] = ["es", "en"];
-export const DEFAULT_LANG: Lang = "es";
+export const LANGUAGES: Lang[] = ["fr", "en"];
+export const DEFAULT_LANG: Lang = "fr";
 
 type Leaf = Record<Lang, string>;
 type Node = Leaf | { [key: string]: Node };
 
 function isLeaf(node: Node): node is Leaf {
-  return typeof (node as Leaf).es === "string";
+  return typeof (node as Leaf).fr === "string";
 }
 
 export const DICT = {
   picker: {
-    season: { es: "Estación", en: "Season" },
-    language: { es: "Idioma", en: "Language" },
-  },
+  season: { fr: "Saison", en: "Season" },
+  language: { fr: "Langue", en: "Language" },
+},
   seasons: {
-    spring: { es: "Primavera", en: "Spring" },
-    summer: { es: "Verano", en: "Summer" },
-    autumn: { es: "Otoño", en: "Autumn" },
-    winter: { es: "Invierno", en: "Winter" },
-  },
-  nav: {
-    aria: { es: "Secciones", en: "Sections" },
-    home: { es: "Inicio", en: "Home" },
-    stack: { es: "Stack", en: "Stack" },
-    experience: { es: "Experiencia", en: "Experience" },
-    project: { es: "Proyecto", en: "Project" },
-    contact: { es: "Contacto", en: "Contact" },
-  },
+  spring: { fr: "Printemps", en: "Spring" },
+  summer: { fr: "Ã‰tÃ©", en: "Summer" },
+  autumn: { fr: "Automne", en: "Autumn" },
+  winter: { fr: "Hiver", en: "Winter" },
+},
+nav: {
+  aria: { fr: "Sections", en: "Sections" },
+  home: { fr: "Accueil", en: "Home" },
+  stack: { fr: "CompÃ©tences", en: "Stack" },
+  experience: { fr: "ExpÃ©rience", en: "Experience" },
+  project: { fr: "Projet", en: "Project" },
+  contact: { fr: "Contact", en: "Contact" },
+},
   header: {
     availability: {
-      es: "Open to opportunities",
+      fr: "Ouverte aux opportunitÃ©s",
       en: "Open to opportunities",
     },
   },
   hero: {
-    greeting: { es: "Hola, soy", en: "Hi, I am" },
+    greeting: { fr: "Bonjour, je suis", en: "Hello, I'm" },
     roleLine: {
-      es: "Software Engineer & Tech Lead.",
-      en: "Software Engineer & Tech Lead.",
-    },
-    tagline: {
-      es: "Especializado en ERPs y aplicaciones full-stack para empresas.",
-      en: "Specialised in ERPs and full-stack apps for businesses.",
-    },
-    cv: { es: "Descargar CV", en: "Download CV" },
-    hire: { es: "Contactarme", en: "Contact me" },
-    scroll: { es: "Scroll para explorar", en: "Scroll to explore" },
-    keysHint: {
-      es: "· hover sobre las teclas",
-      en: "· hover over the keys",
-    },
+  fr: "Ã‰lÃ¨ve ingÃ©nieure en cybersÃ©curitÃ© et infrastructures rÃ©seaux",
+  en: "Cybersecurity & Network Infrastructure Engineering Student",
+},
+tagline: {
+  fr: "PassionnÃ©e par la cybersÃ©curitÃ©, la sÃ©curitÃ© des rÃ©seaux et le DevSecOps. Ã€ la recherche d'un stage de fin d'Ã©tudes (PFE) en 2027.",
+  en: "Passionate about cybersecurity, network security, and DevSecOps. Seeking a final-year internship (PFE) in 2027.",
+},
+    cv: { fr: "TÃ©lÃ©charger mon CV", en: "Download CV" },
+    hire: { fr: "Me contacter", en: "Contact me" },
+
+scroll: {
+  fr: "DÃ©filer pour dÃ©couvrir",
+  en: "Scroll to explore"
+},
+
+keysHint: {
+  fr: "Â· EXPLOREZ MON UNIVERS CYBER",
+  en: "Â· EXPLORE MY CYBER WORLD",
+},
   },
   stack: {
-    title: { es: "Tech Stack", en: "Tech Stack" },
-    hint: {
-      es: "(hint: pasa el ratón por una tecla)",
-      en: "(hint: hover over a key)",
-    },
-    hintMobile: {
-      es: "Las herramientas con las que construyo.",
-      en: "The tools I build with.",
-    },
+  title: {
+    fr: "CompÃ©tences techniques",
+    en: "Tech Stack"
   },
-  experience: {
-    title: { es: "Experience", en: "Experience" },
-    subtitle: {
-      es: "Mi trayectoria profesional.",
-      en: "My professional journey.",
-    },
+  hint: {
+    fr: "(astuce : survolez une touche)",
+    en: "(hint: hover over a key)"
   },
-  projects: {
-    kicker: { es: "proyecto", en: "project" },
-    viewMore: { es: "Ver más", en: "View more" },
-    openSite: { es: "Abrir sitio", en: "Visit site" },
-    viewCode: { es: "Ver código", en: "View code" },
-    close: { es: "Cerrar", en: "Close" },
-    stackLabel: { es: "Stack", en: "Stack" },
-    overview: { es: "Resumen", en: "Overview" },
+  hintMobile: {
+    fr: "Les technologies que j'utilise pour mes projets.",
+    en: "The tools I build with."
   },
-  contact: {
-    kicker: { es: "contacto", en: "contact" },
-    title: { es: "¿Hablamos?", en: "Let's talk?" },
-    body: {
-      es: "Si lo que has visto te interesa, el teclado ya está listo para recibir el primer mensaje.",
-      en: "If what you've seen interests you, the keyboard is ready for the first message.",
-    },
-    copyEmail: { es: "Copiar email", en: "Copy email" },
-    openMail: { es: "Abrir mail", en: "Open mailto" },
-    github: { es: "GitHub", en: "GitHub" },
-    linkedin: { es: "LinkedIn", en: "LinkedIn" },
-    emailToast: { es: "Email copiado", en: "Email copied" },
-    footer: {
-      es: "© 2026 Txema Albero. Todos los derechos reservados.",
-      en: "© 2026 Txema Albero. All rights reserved.",
-    },
+},
+ experience: {
+  title: { fr: "ExpÃ©rience", en: "Experience" },
+  subtitle: {
+    fr: "Mon parcours professionnel.",
+    en: "My professional journey.",
+  },
+},
+projects: {
+  kicker: { fr: "projet", en: "project" },
+  viewMore: { fr: "Voir plus", en: "View more" },
+  openSite: { fr: "Visiter le site", en: "Visit site" },
+  viewCode: { fr: "Voir le code", en: "View code" },
+  close: { fr: "Fermer", en: "Close" },
+  stackLabel: { fr: "Technologies", en: "Stack" },
+  overview: { fr: "PrÃ©sentation", en: "Overview" },
+},
+contact: {
+  kicker: { fr: "contact", en: "contact" },
+  title: { fr: "Discutons ensemble !", en: "Let's talk?" },
+  body: {
+    fr: "Vous avez un projet, une opportunitÃ© ou une question ? N'hÃ©sitez pas Ã  me contacter.",
+    en: "If what you've seen interests you, the keyboard is ready for the first message.",
+  },
+  copyEmail: { fr: "Copier l'adresse e-mail", en: "Copy email" },
+  openMail: { fr: "Envoyer un e-mail", en: "Open mailto" },
+  github: { fr: "GitHub", en: "GitHub" },
+  linkedin: { fr: "LinkedIn", en: "LinkedIn" },
+  emailToast: { fr: "Adresse e-mail copiÃ©e", en: "Email copied" },
+  footer: {
+    fr: "Â© 2026 EL FATMAOUI Wafae. Tous droits rÃ©servÃ©s.",
+    en: "Â© 2026 EL FATMAOUI Wafae. All rights reserved.",
+  },
+
   },
   keyboard: {
     taglines: {
       javascript: {
-        es: "Donde empezó todo. Sigue aquí, sigue mandando.",
+        fr: "DÃ©veloppement web interactif et dynamique.",
         en: "Where it all started. Still here, still in charge.",
       },
       typescript: {
-        es: "Mismo JS, con cinturón de seguridad.",
-        en: "Same JS, with a seatbelt.",
+        fr: "DÃ©veloppement d'applications typÃ©es, fiables et maintenables.",
+        en: "Type-safe application development, reliable code & maintainable software.",
       },
       html5: {
-        es: "Los huesos de cualquier página.",
+        fr: "Structure et organisation des pages web.",
         en: "The bones of any page.",
       },
       css: {
-        es: "El detalle que separa lo bueno de lo bonito.",
+        fr: "Mise en forme et crÃ©ation d'interfaces web.",
         en: "What separates good from beautiful.",
       },
       tailwindcss: {
-        es: "Utility-first. Diseño en el HTML.",
+        fr: "CrÃ©ation rapide d'interfaces avec des classes utilitaires.",
         en: "Utility-first. Design inside the HTML.",
       },
       python: {
-        es: "Se lee como inglés, escala como cohete.",
-        en: "Reads like English, scales like a rocket.",
+        fr: "Automatisation de la sÃ©curitÃ© et dÃ©veloppement d'outils de cybersÃ©curitÃ©.",
+        en: "Security automation, scripting & cybersecurity tools development.",
       },
       react: {
-        es: "Componentes, componentes, componentes.",
+        fr: "CrÃ©ation d'interfaces modernes Ã  base de composants.",
         en: "Components, components, components.",
       },
       nextdotjs: {
-        es: "React adulto: routing, SSR, edge.",
+        fr: "DÃ©veloppement d'applications React avec routage et rendu cÃ´tÃ© serveur.",
         en: "React all grown up: routing, SSR, edge.",
       },
       vuedotjs: {
-        es: "El frontend más relajado.",
+        fr: "DÃ©veloppement d'interfaces web rÃ©actives.",
         en: "The most relaxed frontend.",
       },
       nodedotjs: {
-        es: "JavaScript en el servidor.",
+        fr: "DÃ©veloppement JavaScript cÃ´tÃ© serveur.",
         en: "JavaScript on the server.",
       },
       php: {
-        es: "Mueve más web de la que crees.",
+        fr: "DÃ©veloppement d'applications web cÃ´tÃ© serveur.",
         en: "Runs more of the web than you think.",
       },
       odoo: {
-        es: "ERP que no hace llorar.",
+        fr: "Gestion et personnalisation de solutions ERP.",
         en: "ERP that doesn't make you cry.",
       },
       postgresql: {
-        es: "La base de datos aburrida que siempre funciona.",
-        en: "The boring database that always works.",
+        fr: "Gestion de bases de donnÃ©es et stockage sÃ©curisÃ©.",
+        en: "Database management, secure data storage & SQL.",
       },
       docker: {
-        es: "Igual en mi máquina, igual en producción.",
-        en: "Same on my machine, same in production.",
+        fr: "Conteneurisation, sÃ©curisation des images et dÃ©ploiement.",
+        en: "Containerization, secure images & deployment.",
+      },
+      grafana: {
+        fr: "Supervision des infrastructures et visualisation des performances.",
+        en: "Infrastructure monitoring, data visualization & container performance analysis.",
+      },
+      prometheus: {
+        fr: "Collecte des mÃ©triques et analyse des performances.",
+        en: "Metrics collection, infrastructure monitoring & performance analysis.",
+      },
+      linux: {
+        fr: "Administration et sÃ©curisation des systÃ¨mes Linux.",
+        en: "Linux system administration, security & networking.",
+      },
+      kalilinux: {
+        fr: "Tests d'intrusion, analyse des vulnÃ©rabilitÃ©s et audits de sÃ©curitÃ©.",
+        en: "Penetration testing, vulnerability assessment & security auditing.",
+      },
+      wireshark: {
+        fr: "Analyse du trafic rÃ©seau et inspection des paquets.",
+        en: "Network traffic analysis, packet inspection & security troubleshooting.",
+      },
+      nmap: {
+        fr: "DÃ©couverte rÃ©seau, analyse des ports et Ã©valuation de la sÃ©curitÃ©.",
+        en: "Network discovery, port scanning & security assessment.",
+      },
+      burpsuite: {
+        fr: "Tests de sÃ©curitÃ© web et analyse des requÃªtes HTTP.",
+        en: "Web application security testing, vulnerability analysis & HTTP interception.",
+      },
+      activedirectory: {
+        fr: "Gestion des identitÃ©s, des accÃ¨s et audit des privilÃ¨ges.",
+        en: "Identity & Access Management, user administration, group policies & privilege auditing.",
+      },
+      suricata: {
+        fr: "DÃ©tection d'intrusions rÃ©seau et analyse des menaces.",
+        en: "Network intrusion detection, traffic monitoring & threat analysis.",
+      },
+      trivy: {
+        fr: "Analyse des vulnÃ©rabilitÃ©s des conteneurs et sÃ©curitÃ© DevSecOps.",
+        en: "Container vulnerability scanning, image security & DevSecOps.",
       },
       git: {
-        es: "Historia y máquina del tiempo del código.",
-        en: "History and a time machine for your code.",
+        fr: "Gestion des versions, collaboration et intÃ©gration continue sÃ©curisÃ©e.",
+        en: "Version control, collaboration & secure CI/CD workflows.",
       },
     },
   },
 } as const satisfies Record<string, Node>;
 
-// Resolve a dotted path in the dictionary for a given language.
 export function translate(path: string, lang: Lang): string {
   const parts = path.split(".");
   let ref: Node = DICT as unknown as Node;
+
   for (const p of parts) {
     if (isLeaf(ref)) return path;
+
     ref = (ref as { [key: string]: Node })[p];
+
     if (ref === undefined) return path;
   }
-  if (isLeaf(ref)) return ref[lang] ?? ref.es ?? path;
+
+  if (isLeaf(ref)) {
+    return ref[lang] ?? ref.fr ?? path;
+  }
+
   return path;
 }
