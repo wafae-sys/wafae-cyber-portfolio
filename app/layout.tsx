@@ -24,27 +24,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Txema Albero â€” Software Engineer & Tech Lead",
+  title: "EL FATMAOUI Wafae | Portfolio Cybersécurité",
   description:
-    "Portfolio inmersivo de Txema Albero â€” Software Engineer / Tech Lead. Experiencias web 3D con Next.js y React Three Fiber.",
-  authors: [{ name: "Txema Albero" }],
+    "Portfolio de Wafae El Fatmaoui, élève ingénieure en cybersécurité et infrastructures réseaux. Découvrez mes projets en sécurité réseau, DevSecOps, détection d'intrusions et supervision.",
+
+  authors: [{ name: "Wafae El Fatmaoui" }],
+
   openGraph: {
-    title: "Txema Albero â€” Software Engineer & Tech Lead",
+    title: "EL FATMAOUI Wafae | Portfolio Cybersécurité",
     description:
-      "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
+      "Découvrez mes projets en cybersécurité, sécurité réseau, DevSecOps, détection d'intrusions et supervision.",
     type: "website",
-    locale: "es_ES",
+    locale: "fr_FR",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Txema Albero â€” Software Engineer & Tech Lead",
+    title: "EL FATMAOUI Wafae | Portfolio Cybersécurité",
     description:
-      "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
+      "Portfolio de Wafae El Fatmaoui, élève ingénieure en cybersécurité et infrastructures réseaux.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#060e1c",
+  themeColor: "#171126",
   colorScheme: "dark",
 };
 

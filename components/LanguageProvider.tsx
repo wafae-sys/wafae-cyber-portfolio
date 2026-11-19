@@ -36,12 +36,13 @@ export default function LanguageProvider({ children }: { children: ReactNode }) 
     // Sync React state with whatever the boot script already applied to the
     // <html> element. No-op if the boot script didn't find a stored pref.
     const domLang = document.documentElement.lang;
-    if (
-      (domLang === "es" || domLang === "en") &&
-      domLang !== lang
-    ) {
-      setLangState(domLang);
-    }
+
+if (
+  (domLang === "fr" || domLang === "en") &&
+  domLang !== lang
+) {
+  setLangState(domLang);
+}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
